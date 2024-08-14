@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, StatusBar } from 'react-native';
 import { Svg, G, Path, Rect } from 'react-native-svg';
 import SegmentedControl from '@react-native-segmented-control/segmented-control';
-import ImageViewer from 'react-native-image-zoom-viewer';
 
 const App = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
-
+  
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -44,9 +43,11 @@ const App = () => {
 
         <View style={styles.buttonContainer}>
           <TouchableOpacity style={styles.showButton}>
+            <Image source={require('./assets/qr.png')} style={{width: 20, height: 20, right: 6}}/>
             <Text style={styles.buttonText}>Предъявить документ</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.sendButton}>
+            <Image source={require('./assets/share.png')} style={{width: 20, height: 20, right: 9}}/>
             <Text style={{fontSize: 16, color: 'rgb(42, 133, 212)', fontWeight: '600', alignSelf: 'center'}}>Отправить документ</Text>
           </TouchableOpacity>
         </View>
@@ -128,10 +129,14 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     gap: 10,
+    justifyContent: 'center'
+    
   },
   showButton: {
     backgroundColor: 'rgb(42, 133, 212)',
     paddingVertical: 12,
+    flexDirection: 'row',         // Arrange icon and text in a row
+    alignItems: 'center',
     paddingHorizontal: 16,
     borderRadius: 12,
     height: 55,
@@ -142,6 +147,8 @@ const styles = StyleSheet.create({
   sendButton: {
     backgroundColor: 'white',
     borderColor: 'rgb(42, 133, 212)',
+    flexDirection: 'row',
+    alignItems: 'center',
     borderWidth: 2,
     paddingVertical: 12,
     paddingHorizontal: 16,
