@@ -126,7 +126,7 @@ const App = () => {
             >
               <Animated.View style={[styles.imageContainer, animatedStyle]}>
                 <Image
-                  source={require("./assets/udos.jpg")}
+                  source={require("Фотография удостоверения")}
                   style={styles.image}
                 />
               </Animated.View>
